@@ -3,7 +3,7 @@
     <ul>
         {% for date in date_list %}
         <li>
-            <a href="#">{{ date }}</a>
+            <a href="{% url 'blog:archive' date.year date.month %}">{{ date }}</a>
         </li>
         {% empty %}
             No archives yet !

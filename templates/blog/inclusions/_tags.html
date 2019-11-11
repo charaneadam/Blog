@@ -3,7 +3,7 @@
     <ul>
         {% for tag in tag_list %}
             <li>
-                <a href="#">{{ tag }}</a>
+                <a href="{% url 'blog:tag' tag.pk %}">{{ tag }}</a>
             </li>
         {% empty %}
             There are no available Tags yet !
