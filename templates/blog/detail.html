@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <article class="post post-1">
+        <header class="entry-header">
+            <h1 class="entry-title">{{ post.title }}</h1>
+            <div class="entry-meta">
+                <span class="post-category"><a href="#">{{ post.category }}</a></span>
+                <span class="post-date"><a href="#"><time class="entry-date"
+                                                          datetime="{{ post.get_time }}">{{ post.get_time }}</time></a></span>
+                <span class="post-author"><a href="#">{{ post.author.username }}</a></span>
+                {#           TODO: retrieve comment and reads           #}
+                <span class="comments-link"><a href="#">4 comments</a></span>
+                <span class="views-count"><a href="#">588 reads</a></span>
+            </div>
+        </header>
+        <div class="entry-content clearfix">
+            <p>Django is an open source web framework written in Python that can be used to quickly build a
+                high-performance website.</p>
+            <blockquote><p>Django makes it easier to build better Web apps more quickly and with less
+                code.</p>
+                <p>Django lets you build better web applications faster, with less code, and more
+                    easily.</p>
+            </blockquote>
+            <p>This tutorial will take you through Django to quickly develop your own blog site.</p>
+            <h2>Tutorial features</h2>
+            <p>Take your own step-by-step development of your own blog site to help you master Django
+                development skills as quickly as possible.</p>
+            <h2>Who is suitable for this tutrial</h2>
+            <p><strong>primarily for new, zero-based Django people.</strong></p>
+            <p>Just a little bit of the basics of the Python language, you can read this tutorial.</p>
+            <p>If you have some experience with Django development, you can learn more about Django
+                development techniques from this tutorial.</p>
+            <h2>Preview</h2>
+            <p>Click：<a href=''>Django Blog Demo</a></p>
+            <p><img src='' alt=''/></p>
+            <h2>Resources</h2>
+            <p>Project complete code hosted in GitHub：<a href=''>Django Blog Tutorial</a></p>
+            <p>Blog front-end templates are hosted on GitHub：<a href=''>Blog template</a></p>
+            <h2>Get Help</h2>
+            <p>Have problems in project development, get help instantly</p>
+            <p>Django study group QQ group, scan the QR code below to join.</p>
+            <p><img src='' alt=''/></p>
+            <p>Or you can email a detailed description of the problem to <a
+                    href='mailto:djangostudyteam@163.com' target='_blank'>djangostudyteam@163.com</a>，
+                一 Generally we reply within 24 hours </p>
+        </div>
+    </article>
+    <section class="comment-area" id="comment-area">
+        <hr>
+        <h3>Post a comment</h3>
+        <form action="#" method="post" class="comment-form">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="id_name">First name：</label>
+                    <input type="text" id="id_name" name="name" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="id_email">Email：</label>
+                    <input type="email" id="id_email" name="email" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="id_url">URL：</label>
+                    <input type="text" id="id_url" name="url">
+                </div>
+                <div class="col-md-12">
+                    <label for="id_comment">comment：</label>
+                    <textarea name="comment" id="id_comment" required></textarea>
+                    <button type="submit" class="comment-btn">Post</button>
+                </div>
+            </div>    <!-- row -->
+        </form>
+        <div class="comment-list-panel">
+            <h3>List of comments <span>(3)</span></h3>
+            <ul class="comment-list list-unstyled">
+                <li class="comment-item">
+                    <span class="nickname">Dream Catcher</span>
+                    <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 12, 2017 14:56
+                    </time>
+                    <div class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <span class="nickname">zmrenwu</span>
+                    <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 11, 2017 23:56
+                    </time>
+                    <div class="text">
+                        Instinct may break through the pattern, but the pattern sometimes detains instinct.
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <span class="nickname">Batman</span>
+                    <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 9, 2017 8:56</time>
+                    <div class="text">
+                        In fact, truth is generally the majority of silence. Those extreme views can only
+                        appeal to those who are equally
+                        extreme. A few years ago, Qiong Yao confessed to her mother's plagiarism. Everyone
+                        said that they were very happy. It shows that eating a melon audience is just a
+                        matter of fact. It is not biased against Qiong Yao.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}
+{% block toc %}
+    <div class="widget widget-content">
+        <h3 class="widget-title">Contents</h3>
+        <ul>
+            <li>
+                <a href="#">Tutorial features</a>
+            </li>
+            <li>
+                <a href="#">Who is suitable for this tutorial</a>
+            </li>
+            <li>
+                <a href="#">Preview</a>
+            </li>
+            <li>
+                <a href="#">Resources</a>
+            </li>
+            <li>
+                <a href="#">Get help</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
