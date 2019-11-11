@@ -70,28 +70,38 @@
         <div class="row">
             <main class="col-md-8">
 
-                <article class="post post-1">
-                    <header class="entry-header">
-                        <h1 class="entry-title">
-                            <a href="single.html">Django Blog development tutorial：Preface</a>
-                        </h1>
-                        <div class="entry-meta">
-                            <span class="post-category"><a href="#">Django Blog tutorial</a></span>
-                            <span class="post-date"><a href="#"><time class="entry-date"
-                                                                          datetime="2012-11-09T23:15:57+00:00">May 11, 2017</time></a></span>
-                            <span class="post-author"><a href="#">Dream Catcher</a></span>
-                            <span class="comments-link"><a href="#">4 comments</a></span>
-                            <span class="views-count"><a href="#">588 reads</a></span>
+                {% for post in post_list %}
+                    <article class="post post-{{ post.pk }}">
+                        <header class="entry-header">
+                            <h1 class="entry-title">
+                                <a href="single.html">{{ post.title }}</a>
+                            </h1>
+                            <div class="entry-meta">
+                                <span class="post-category"><a href="#">{{ post.category }}</a></span>
+                                <span class="post-date">
+                                    <a href="#">
+                                        <time class="entry-date" datetime="{{ post.created_time }}">
+                                            {{ post.created_time }}
+                                        </time>
+                                    </a>
+                                </span>
+                                <span class="post-author"><a href="#">{{ post.author }}</a></span>
+                                {#  TODO: fetch # of {comments, reads}  #}
+                                <span class="comments-link"><a href="#">4 comments</a></span>
+                                <span class="views-count"><a href="#">588 reads</a></span>
+                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <p>{{ post.excerpt }}</p>
+                            <div class="read-more cl-effect-14">
+                                <a href="#" class="more-link">Continue reading <span class="meta-nav">→</span></a>
+                            </div>
                         </div>
-                    </header>
-                    <div class="entry-content clearfix">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation u...</p>
-                        <div class="read-more cl-effect-14">
-                            <a href="#" class="more-link">Continue reading <span class="meta-nav">→</span></a>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                {% empty %}
+                    <div class="no-post">There no published articles yet！</div>
+                {% endfor %}
+
                 <!-- 简单分页效果
                 <div class="pagination-simple">
                     <a href="#">上一页</a>
@@ -205,7 +215,8 @@
         <div class="row">
             <div class="col-md-12">
                 <p class="copyright">&copy 2017 - Collected from <a href="http://www.cssmoban.com/"
-                                                        target="_blank" title="Template House">Template House</a>
+                                                                    target="_blank" title="Template House">Template
+                    House</a>
                     - by <a href="http://zmrenwu.com/" title="Web Template" target="_blank">Dream Catcher Blog</a>
                 </p>
             </div>
