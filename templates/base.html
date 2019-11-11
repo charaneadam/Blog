@@ -1,4 +1,5 @@
 {% load static %}
+{% load blog_extras %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,85 +77,10 @@
                 {% block toc %}
                 {% endblock %}
                 {% block aside %}
-                    <div class="widget widget-recent-posts">
-                        <h3 class="widget-title">Latest</h3>
-                        <ul>
-                            <li>
-                                <a href="#">Django Blog development tutorial：Foreword</a>
-                            </li>
-                            <li>
-                                <a href="#">Django Blog Use Markdown: Automatically generate article directories</a>
-                            </li>
-                            <li>
-                                <a href="#">Deploy Django Blog</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="widget widget-archives">
-                        <h3 class="widget-title">Archive</h3>
-                        <ul>
-                            <li>
-                                <a href="#">5 May 2017</a>
-                            </li>
-                            <li>
-                                <a href="#">4 May 2017</a>
-                            </li>
-                            <li>
-                                <a href="#">3 May 2017</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="widget widget-category">
-                        <h3 class="widget-title">Courses</h3>
-                        <ul>
-                            <li>
-                                <a href="#">Django Blog Tutorial <span class="post-count">(13)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Python Tutorial <span class="post-count">(11)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Django User Authentication <span class="post-count">(8)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="widget widget-tag-cloud">
-                        <h3 class="widget-title">Tags</h3>
-                        <ul>
-                            <li>
-                                <a href="#">Django</a>
-                            </li>
-                            <li>
-                                <a href="#">Python</a>
-                            </li>
-                            <li>
-                                <a href="#">Java</a>
-                            </li>
-                            <li>
-                                <a href="#">笔记</a>
-                            </li>
-                            <li>
-                                <a href="#">文档</a>
-                            </li>
-                            <li>
-                                <a href="#">AngularJS</a>
-                            </li>
-                            <li>
-                                <a href="#">CSS</a>
-                            </li>
-                            <li>
-                                <a href="#">JavaScript</a>
-                            </li>
-                            <li>
-                                <a href="#">Snippet</a>
-                            </li>
-                            <li>
-                                <a href="#">jQuery</a>
-                            </li>
-                        </ul>
-                    </div>
+                    {% show_recent_posts %}
+                    {% show_archives %}
+                    {% show_categories %}
+                    {% show_tags %}
                     <div class="rss">
                         <a href=""><span class="ion-social-rss-outline"></span> RSS subscription</a>
                     </div>
