@@ -21,53 +21,19 @@
     </article>
     <section class="comment-area" id="comment-area">
         <hr>
-        <h3>Post a comment</h3>
 
         {% show_comment_form post %}
 
         <div class="comment-list-panel">
-            <h3>List of comments <span>(3)</span></h3>
-            <ul class="comment-list list-unstyled">
-                <li class="comment-item">
-                    <span class="nickname">Dream Catcher</span>
-                    <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 12, 2017 14:56
-                    </time>
-                    <div class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    </div>
-                </li>
-                <li class="comment-item">
-                    <span class="nickname">zmrenwu</span>
-                    <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 11, 2017 23:56
-                    </time>
-                    <div class="text">
-                        Instinct may break through the pattern, but the pattern sometimes detains instinct.
-                    </div>
-                </li>
-                <li class="comment-item">
-                    <span class="nickname">Batman</span>
-                    <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 9, 2017 8:56</time>
-                    <div class="text">
-                        In fact, truth is generally the majority of silence. Those extreme views can only
-                        appeal to those who are equally
-                        extreme. A few years ago, Qiong Yao confessed to her mother's plagiarism. Everyone
-                        said that they were very happy. It shows that eating a melon audience is just a
-                        matter of fact. It is not biased against Qiong Yao.
-                    </div>
-                </li>
-            </ul>
+            {% show_comments post %}
         </div>
     </section>
 {% endblock %}
 {% block toc %}
     {% if post.toc %}
-    <div class="widget widget-content">
-        <h3 class="widget-title">Contents</h3>
-        {{ post.toc | safe }}
-    </div>
+        <div class="widget widget-content">
+            <h3 class="widget-title">Contents</h3>
+            {{ post.toc | safe }}
+        </div>
     {% endif %}
 {% endblock %}
