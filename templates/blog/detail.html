@@ -15,35 +15,7 @@
             </div>
         </header>
         <div class="entry-content clearfix">
-            <p>Django is an open source web framework written in Python that can be used to quickly build a
-                high-performance website.</p>
-            <blockquote><p>Django makes it easier to build better Web apps more quickly and with less
-                code.</p>
-                <p>Django lets you build better web applications faster, with less code, and more
-                    easily.</p>
-            </blockquote>
-            <p>This tutorial will take you through Django to quickly develop your own blog site.</p>
-            <h2>Tutorial features</h2>
-            <p>Take your own step-by-step development of your own blog site to help you master Django
-                development skills as quickly as possible.</p>
-            <h2>Who is suitable for this tutrial</h2>
-            <p><strong>primarily for new, zero-based Django people.</strong></p>
-            <p>Just a little bit of the basics of the Python language, you can read this tutorial.</p>
-            <p>If you have some experience with Django development, you can learn more about Django
-                development techniques from this tutorial.</p>
-            <h2>Preview</h2>
-            <p>Click：<a href=''>Django Blog Demo</a></p>
-            <p><img src='' alt=''/></p>
-            <h2>Resources</h2>
-            <p>Project complete code hosted in GitHub：<a href=''>Django Blog Tutorial</a></p>
-            <p>Blog front-end templates are hosted on GitHub：<a href=''>Blog template</a></p>
-            <h2>Get Help</h2>
-            <p>Have problems in project development, get help instantly</p>
-            <p>Django study group QQ group, scan the QR code below to join.</p>
-            <p><img src='' alt=''/></p>
-            <p>Or you can email a detailed description of the problem to <a
-                    href='mailto:djangostudyteam@163.com' target='_blank'>djangostudyteam@163.com</a>，
-                一 Generally we reply within 24 hours </p>
+            {{ post.body | safe }}
         </div>
     </article>
     <section class="comment-area" id="comment-area">
