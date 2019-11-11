@@ -81,24 +81,10 @@
     </section>
 {% endblock %}
 {% block toc %}
+    {% if post.toc %}
     <div class="widget widget-content">
         <h3 class="widget-title">Contents</h3>
-        <ul>
-            <li>
-                <a href="#">Tutorial features</a>
-            </li>
-            <li>
-                <a href="#">Who is suitable for this tutorial</a>
-            </li>
-            <li>
-                <a href="#">Preview</a>
-            </li>
-            <li>
-                <a href="#">Resources</a>
-            </li>
-            <li>
-                <a href="#">Get help</a>
-            </li>
-        </ul>
+        {{ post.toc | safe }}
     </div>
+    {% endif %}
 {% endblock %}
