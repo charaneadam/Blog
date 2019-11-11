@@ -3,7 +3,7 @@
     <ul>
         {% for post in recent_posts_list %}
             <li>
-                <a href="{{ post.get_absolute_urll }}">{{ post.title }}</a>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
             </li>
         {% empty %}
             There are no recent posts !

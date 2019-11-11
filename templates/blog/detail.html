@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 {% load comments_extras %}
 
+{% block title %}{{ post }}{% endblock %}
+
 {% block main %}
     <article class="post post-1">
         <header class="entry-header">
             <h1 class="entry-title">{{ post.title }}</h1>
             <div class="entry-meta">
-                <span class="post-category"><a href="#">{{ post.category }}</a></span>
-                <span class="post-date"><a href="#"><time class="entry-date"
-                                                          datetime="{{ post.get_time }}">{{ post.get_time }}</time></a></span>
-                <span class="post-author"><a href="#">{{ post.author.username }}</a></span>
-                {#           TODO: retrieve comment and reads           #}
-                <span class="comments-link"><a href="#">4 comments</a></span>
-                <span class="views-count"><a href="#">588 reads</a></span>
+                <span class="post-category"><a href="{% url 'blog:category' post.category.pk %}">{{ post.category }}</a></span>
+                <span class="post-date">
+                    <a href="{% url 'blog:archive-day' post.created_time.year post.created_time.month post.created_time.day %}">
+                        <time class="entry-date" datetime="{{ post.get_time }}">
+                            {{ post.get_time }}
+                        </time>
+                    </a>
+                </span>
+                <span class="post-author"><a href="{% url 'blog:posts-by-author' post.author.pk %}">{{ post.author.username }}</a></span>
+                <span class="comments-link"><a href="{{ post.get_absolute_url }}#comments">{{ post.number_comments }} comments</a></span>
+                <span class="views-count"><a href="#">{{ post.reads }} reads</a></span>
             </div>
         </header>
         <div class="entry-content clearfix">

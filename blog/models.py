@@ -36,16 +36,22 @@ class Post(models.Model):
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    # New fields
+    reads = models.PositiveIntegerField(default=0)
+    number_comments = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-created_time']
+
     def __str__(self):
         return f'{self.title} by {self.author.username}'
 
     def save(self, *args, **kwargs):
-        self.modified_time = timezone.now()
-        md = markdown.Markdown(extensions=[
-            'markdown.extensions.extra',
-            'markdown.extensions.codehilite',
-        ])
         if not self.excerpt:
+            md = markdown.Markdown(extensions=[
+                'markdown.extensions.extra',
+                'markdown.extensions.codehilite',
+            ])
             self.excerpt = strip_tags(md.convert(self.body))[:54]
         super().save(*args, **kwargs)
 
@@ -54,3 +60,6 @@ class Post(models.Model):
 
     def get_time(self):
         return self.modified_time if self.modified_time else self.created_time
+
+    def get_comments_list(self):
+        return self.comment_set.all()
