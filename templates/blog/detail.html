@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load comments_extras %}
 
 {% block main %}
     <article class="post post-1">
@@ -21,27 +22,9 @@
     <section class="comment-area" id="comment-area">
         <hr>
         <h3>Post a comment</h3>
-        <form action="#" method="post" class="comment-form">
-            <div class="row">
-                <div class="col-md-4">
-                    <label for="id_name">First name：</label>
-                    <input type="text" id="id_name" name="name" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="id_email">Email：</label>
-                    <input type="email" id="id_email" name="email" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="id_url">URL：</label>
-                    <input type="text" id="id_url" name="url">
-                </div>
-                <div class="col-md-12">
-                    <label for="id_comment">comment：</label>
-                    <textarea name="comment" id="id_comment" required></textarea>
-                    <button type="submit" class="comment-btn">Post</button>
-                </div>
-            </div>    <!-- row -->
-        </form>
+
+        {% show_comment_form post %}
+
         <div class="comment-list-panel">
             <h3>List of comments <span>(3)</span></h3>
             <ul class="comment-list list-unstyled">
