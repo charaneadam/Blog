@@ -1,0 +1,283 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Black &amp; White</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'blog/css/pace.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}">
+
+    <!-- js -->
+    <script src="{% static 'blog/js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/pace.min.js' %}"></script>
+    <script src="{% static 'blog/js/modernizr.custom.js' %}"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Black</b> &amp; White</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Home">Home</a></li>
+                            <li class="cl-effect-11"><a href="full-width.html" data-hover="Blog">Blog</a></li>
+                            <li class="cl-effect-11"><a href="about.html" data-hover="About">About</a></li>
+                            <li class="cl-effect-11"><a href="contact.html" data-hover="Contact">Contact</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <label>
+                                <input type="search" placeholder="搜索" required>
+                            </label>
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8">
+                <article class="post post-1">
+                    <header class="entry-header">
+                        <h1 class="entry-title">Django Blog Development Tutorial：Foreword</h1>
+                        <div class="entry-meta">
+                            <span class="post-category"><a href="#">Django Blog Tutorial</a></span>
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2012-11-09T23:15:57+00:00">May 11, 2017</time></a></span>
+                            <span class="post-author"><a href="#">Dream Catcher</a></span>
+                            <span class="comments-link"><a href="#">4 comments</a></span>
+                            <span class="views-count"><a href="#">588 reads</a></span>
+                        </div>
+                    </header>
+                    <div class="entry-content clearfix">
+                        <p>Django is an open source web framework written in Python that can be used to quickly build a high-performance website.</p>
+                        <blockquote><p>Django makes it easier to build better Web apps more quickly and with less code.</p>
+                            <p>Django lets you build better web applications faster, with less code, and more easily.</p>
+                        </blockquote>
+                        <p>This tutorial will take you through Django to quickly develop your own blog site.</p>
+                        <h2>Aim of this tutorial</h2>
+                        <p>Take your own step-by-step development of your own blog site to help you master Django development skills as quickly as possible.</p>
+                        <h2>This tutorial is for</h2>
+                        <p><strong>primarily for new, zero-based Django people.</strong></p>
+                        <p>Just a little bit of the basics of the Python language, you can read this tutorial.</p>
+                        <p>If you have some experience with Django development, you can learn more about Django development techniques from this tutorial.</p>
+                        <h2>Online Preview</h2>
+                        <p>Click：<a href=''>Django Blog Demo</a></p>
+                        <p><img src='' alt=''/></p>
+                        <h2>Resources</h2>
+                        <p>Project complete code hosted in GitHub：<a href=''>Django Blog Tutorial</a></p>
+                        <p>Blog front-end templates are hosted on GitHub：<a href=''>Blog template</a></p>
+                        <h2>Get Hep</h2>
+                        <p>Have problems in project development, get help instantly</p>
+                        <p>Django study group QQ group, scan the QR code below to join.</p>
+                        <p><img src='' alt=''/></p>
+                        <p>Or you can email a detailed description of the problem to <a href='mailto:djangostudyteam@163.com' target='_blank'>djangostudyteam@163.com</a>，
+                            一 Generally we reply within 24 hours </p>
+                    </div>
+                </article>
+                <section class="comment-area" id="comment-area">
+                    <hr>
+                    <h3>Post a comment</h3>
+                    <form action="#" method="post" class="comment-form">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="id_name">First name：</label>
+                                <input type="text" id="id_name" name="name" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="id_email">Email：</label>
+                                <input type="email" id="id_email" name="email" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="id_url">URL：</label>
+                                <input type="text" id="id_url" name="url">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="id_comment">comment：</label>
+                                <textarea name="comment" id="id_comment" required></textarea>
+                                <button type="submit" class="comment-btn">Post</button>
+                            </div>
+                        </div>    <!-- row -->
+                    </form>
+                    <div class="comment-list-panel">
+                        <h3>List of comments <span>(3)</span></h3>
+                        <ul class="comment-list list-unstyled">
+                            <li class="comment-item">
+                                <span class="nickname">Dream Catcher</span>
+                                <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 12, 2017 14:56</time>
+                                <div class="text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                </div>
+                            </li>
+                            <li class="comment-item">
+                                <span class="nickname">zmrenwu</span>
+                                <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 11, 2017 23:56</time>
+                                <div class="text">
+                                    Instinct may break through the pattern, but the pattern sometimes detains instinct.
+                                </div>
+                            </li>
+                            <li class="comment-item">
+                                <span class="nickname">Batman</span>
+                                <time class="submit-date" datetime="2012-11-09T23:15:57+00:00">March 9, 2017 8:56</time>
+                                <div class="text">
+In fact, truth is generally the majority of silence. Those extreme views can only appeal to those who are equally
+                                    extreme. A few years ago, Qiong Yao confessed to her mother's plagiarism. Everyone
+                                    said that they were very happy. It shows that eating a melon audience is just a
+                                    matter of fact. It is not biased against Qiong Yao.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+            <aside class="col-md-4">
+                <div class="widget widget-recent-posts">
+                    <h3 class="widget-title">Latest</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Django Blog development tutorial：Foreword</a>
+                        </li>
+                        <li>
+                            <a href="#">Django Blog Use Markdown: Automatically generate article directories</a>
+                        </li>
+                        <li>
+                            <a href="#">Deploy Django Blog</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="widget widget-archives">
+                    <h3 class="widget-title">Archive</h3>
+                    <ul>
+                        <li>
+                            <a href="#">5 May 2017</a>
+                        </li>
+                        <li>
+                            <a href="#">4 May 2017</a>
+                        </li>
+                        <li>
+                            <a href="#">3 May 2017</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget widget-category">
+                    <h3 class="widget-title">Courses</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Django Blog Tutorial <span class="post-count">(13)</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Python Tutorial <span class="post-count">(11)</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Django User Authentication <span class="post-count">(8)</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget widget-tag-cloud">
+                    <h3 class="widget-title">Tags</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Django</a>
+                        </li>
+                        <li>
+                            <a href="#">Python</a>
+                        </li>
+                        <li>
+                            <a href="#">Java</a>
+                        </li>
+                        <li>
+                            <a href="#">笔记</a>
+                        </li>
+                        <li>
+                            <a href="#">文档</a>
+                        </li>
+                        <li>
+                            <a href="#">AngularJS</a>
+                        </li>
+                        <li>
+                            <a href="#">CSS</a>
+                        </li>
+                        <li>
+                            <a href="#">JavaScript</a>
+                        </li>
+                        <li>
+                            <a href="#">Snippet</a>
+                        </li>
+                        <li>
+                            <a href="#">jQuery</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rss">
+                    <a href=""><span class="ion-social-rss-outline"></span> RSS subscription</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy 2017 - Collected from <a href="http://www.cssmoban.com/"
+                                                        target="_blank" title="Template House">Template House</a>
+                    - by <a href="http://zmrenwu.com/" title="Web Template" target="_blank">Dream Catcher Blog</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="full-width.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contac</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="{% static 'blog/js/script.js' %}"></script>
+
+</body>
+</html>
