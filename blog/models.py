@@ -27,7 +27,7 @@ class Post(models.Model):
     body = models.TextField()
 
     created_time = models.DateTimeField(default=timezone.now)
-    modified_time = models.DateTimeField()
+    modified_time = models.DateTimeField(blank=True, null=True)
 
     excerpt = models.CharField(max_length=200, blank=True)
 
