@@ -9,7 +9,8 @@
                     <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                 </h1>
                 <div class="entry-meta">
-                    <span class="post-category"><a href="{% url 'blog:category' post.category.pk %}">{{ post.category }}</a></span>
+                    <span class="post-category"><a
+                            href="{% url 'blog:category' post.category.pk %}">{{ post.category }}</a></span>
                     <span class="post-date">
                                     <a href="{% url 'blog:archive-day' post.created_time.year post.created_time.month post.created_time.day %}">
                                         <time class="entry-date" datetime="{{ post.created_time }}">
@@ -17,9 +18,11 @@
                                         </time>
                                     </a>
                                 </span>
-                    <span class="post-author"><a href="{% url 'blog:posts-by-author' post.author.pk %}">{{ post.author }}</a></span>
+                    <span class="post-author"><a
+                            href="{% url 'blog:posts-by-author' post.author.pk %}">{{ post.author }}</a></span>
                     {#  TODO: fetch # of {comments, reads}  #}
-                    <span class="comments-link"><a href="{{ post.get_absolute_url }}#comments">{{ post.number_comments }} comments</a></span>
+                    <span class="comments-link"><a
+                            href="{{ post.get_absolute_url }}#comments">{{ post.number_comments }} comments</a></span>
                     <span class="views-count"><a href="{{ post.get_absolute_url }}">{{ post.reads }} reads</a></span>
                 </div>
             </header>
@@ -37,26 +40,26 @@
         <div class="no-post">There no published articles yet！</div>
     {% endfor %}
 
-    <!-- 简单分页效果
-    <div class="pagination-simple">
-        <a href="#">上一页</a>
-        <span class="current">第 6 页 / 共 11 页</span>
-        <a href="#">下一页</a>
-    </div>
-    -->
-
-
-    <div class="pagination">
-        <ul>
-            <li><a href="">1</a></li>
-            <li><a href="">...</a></li>
-            <li><a href="">4</a></li>
-            <li><a href="">5</a></li>
-            <li class="current"><a href="">6</a></li>
-            <li><a href="">7</a></li>
-            <li><a href="">8</a></li>
-            <li><a href="">...</a></li>
-            <li><a href="">11</a></li>
+    {% if is_paginated %}
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+            {% endif %}
         </ul>
-    </div>
+    {% endif %}
+
 {% endblock %}
