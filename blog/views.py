@@ -40,19 +40,6 @@ class ArchiveView(IndexView):
         return Post.objects.filter(created_time__year=year, created_time__month=month)
 
 
-def detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    md = markdown.Markdown(extensions=[
-        'markdown.extensions.extra',
-        'markdown.extensions.codehilite',
-        'markdown.extensions.toc',
-    ])
-    post.body = md.convert(post.body)
-    post.toc = md.toc
-
-    return render(request, "blog/detail.html", context={'post': post})
-
-
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/detail.html'
