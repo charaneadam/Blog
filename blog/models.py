@@ -63,3 +63,7 @@ class Post(models.Model):
 
     def get_comments_list(self):
         return self.comment_set.all()
+
+    def increase_views(self):
+        self.reads = self.reads + 1
+        self.save()
