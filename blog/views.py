@@ -1,19 +1,23 @@
 import markdown
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest, HttpResponse
-
+from django.views.generic import ListView
 from django.contrib.auth.models import User
 
 from .models import Post, Category, Tag
 
 
-def index(request):
-    post_list = Post.objects.all().order_by('-created_time')
-    context = {
-        'post_list': post_list,
-    }
-    template = 'blog/index.html'
-    return render(request, template_name=template, context=context)
+class IndexView(ListView):
+    model = Post
+    context_object_name = 'post_list'
+    template_name = 'blog/index.html'
+
+
+class CategoryView(IndexView):
+    def get_queryset(self):
+        cate = get_object_or_404(Category, pk=self.kwargs.get('pk'))
+        return super(CategoryView, self).get_queryset().filter(category=cate)
+
 
 
 def detail(request, pk):
@@ -47,11 +51,6 @@ def archive_day(request, year, month, day=None):
                                     created_time__day=day
                                     )
     return __render(request, {'post_list': post_list})
-
-def category(request, pk):
-    cate = get_object_or_404(Category, pk=pk)
-    post_list = Post.objects.filter(category=cate)
-    return __render(request, context={'post_list': post_list})
 
 def author(request, pk):
     auth = get_object_or_404(User, pk=pk)
